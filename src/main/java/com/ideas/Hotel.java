@@ -28,4 +28,12 @@ public class Hotel {
     public int hashCode() {
         return Objects.hash(getRate(), name);
     }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "rate=" + rate +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
