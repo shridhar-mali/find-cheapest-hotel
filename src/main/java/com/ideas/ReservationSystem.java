@@ -1,7 +1,9 @@
 package com.ideas;
 
-import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Comparator.comparingDouble;
 
 public class ReservationSystem {
     private final List<Hotel> hotels;
@@ -10,7 +12,7 @@ public class ReservationSystem {
         this.hotels = hotels;
     }
 
-    public Hotel findCheapestHotel() {
-        return hotels.stream().sorted(Comparator.comparingDouble(Hotel::getRate)).findFirst().get();
+    public Optional<Hotel> findCheapestHotel() {
+        return hotels.stream().min(comparingDouble(Hotel::getRate));
     }
 }
